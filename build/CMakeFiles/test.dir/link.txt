@@ -1,1 +1,0 @@
-/usr/bin/c++  -std=c++11  -rdynamic CMakeFiles/test.dir/src/Edge.cpp.o CMakeFiles/test.dir/src/Vertex.cpp.o CMakeFiles/test.dir/src/convert.cpp.o CMakeFiles/test.dir/src/test.cpp.o  -o test 

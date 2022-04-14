@@ -41,7 +41,7 @@ int main()
         y[i] = vertices[i].y;
     }
     std::string title = "raw odometry";
-    std::string file_name = "./result/raw.png";
+    std::string file_name = "../result/raw.png";
     draw_odometry(x, y, title, file_name);
 
     int n_vertex = vertices.size();
@@ -132,7 +132,7 @@ int main()
         y[i] = vertices[i].y;
     }
     std::string title = "iteration " + std::to_string(i);
-    std::string file_name = "./result/" + std::to_string(i) + ".png";
+    std::string file_name = "../result/" + std::to_string(i) + ".png";
     draw_odometry(x, y, title, file_name);
     
     }
