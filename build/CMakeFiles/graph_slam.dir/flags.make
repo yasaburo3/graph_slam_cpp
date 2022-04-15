@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/yasaburo3/project/graph_slam_cpp/include -I/usr/include/eigen3 -isystem /usr/include/python3.6m -isystem /home/yasaburo3/.local/lib/python3.6/site-packages/numpy/core/include
+CXX_INCLUDES = -I/home/yasaburo3/project/graph_slam_cpp/include -I/usr/include/suitesparse -I/usr/local/include/g2o/solvers/csparse -I/usr/include/eigen3 -isystem /usr/include/python3.6m -isystem /home/yasaburo3/.local/lib/python3.6/site-packages/numpy/core/include
 
-CXX_FLAGS = -std=c++11
+CXX_FLAGS = -std=c++14
 

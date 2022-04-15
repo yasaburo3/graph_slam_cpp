@@ -83,24 +83,10 @@ CMakeFiles/graph_slam.dir/src/Edge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graph_slam.dir/src/Edge.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasaburo3/project/graph_slam_cpp/src/Edge.cpp -o CMakeFiles/graph_slam.dir/src/Edge.cpp.s
 
-CMakeFiles/graph_slam.dir/src/Vertex.cpp.o: CMakeFiles/graph_slam.dir/flags.make
-CMakeFiles/graph_slam.dir/src/Vertex.cpp.o: ../src/Vertex.cpp
-CMakeFiles/graph_slam.dir/src/Vertex.cpp.o: CMakeFiles/graph_slam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yasaburo3/project/graph_slam_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/graph_slam.dir/src/Vertex.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/graph_slam.dir/src/Vertex.cpp.o -MF CMakeFiles/graph_slam.dir/src/Vertex.cpp.o.d -o CMakeFiles/graph_slam.dir/src/Vertex.cpp.o -c /home/yasaburo3/project/graph_slam_cpp/src/Vertex.cpp
-
-CMakeFiles/graph_slam.dir/src/Vertex.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graph_slam.dir/src/Vertex.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yasaburo3/project/graph_slam_cpp/src/Vertex.cpp > CMakeFiles/graph_slam.dir/src/Vertex.cpp.i
-
-CMakeFiles/graph_slam.dir/src/Vertex.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graph_slam.dir/src/Vertex.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasaburo3/project/graph_slam_cpp/src/Vertex.cpp -o CMakeFiles/graph_slam.dir/src/Vertex.cpp.s
-
 CMakeFiles/graph_slam.dir/src/convert.cpp.o: CMakeFiles/graph_slam.dir/flags.make
 CMakeFiles/graph_slam.dir/src/convert.cpp.o: ../src/convert.cpp
 CMakeFiles/graph_slam.dir/src/convert.cpp.o: CMakeFiles/graph_slam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yasaburo3/project/graph_slam_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/graph_slam.dir/src/convert.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yasaburo3/project/graph_slam_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/graph_slam.dir/src/convert.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/graph_slam.dir/src/convert.cpp.o -MF CMakeFiles/graph_slam.dir/src/convert.cpp.o.d -o CMakeFiles/graph_slam.dir/src/convert.cpp.o -c /home/yasaburo3/project/graph_slam_cpp/src/convert.cpp
 
 CMakeFiles/graph_slam.dir/src/convert.cpp.i: cmake_force
@@ -111,38 +97,37 @@ CMakeFiles/graph_slam.dir/src/convert.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graph_slam.dir/src/convert.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasaburo3/project/graph_slam_cpp/src/convert.cpp -o CMakeFiles/graph_slam.dir/src/convert.cpp.s
 
-CMakeFiles/graph_slam.dir/src/test.cpp.o: CMakeFiles/graph_slam.dir/flags.make
-CMakeFiles/graph_slam.dir/src/test.cpp.o: ../src/test.cpp
-CMakeFiles/graph_slam.dir/src/test.cpp.o: CMakeFiles/graph_slam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yasaburo3/project/graph_slam_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/graph_slam.dir/src/test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/graph_slam.dir/src/test.cpp.o -MF CMakeFiles/graph_slam.dir/src/test.cpp.o.d -o CMakeFiles/graph_slam.dir/src/test.cpp.o -c /home/yasaburo3/project/graph_slam_cpp/src/test.cpp
+CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o: CMakeFiles/graph_slam.dir/flags.make
+CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o: ../src/graph_slam.cpp
+CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o: CMakeFiles/graph_slam.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yasaburo3/project/graph_slam_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o -MF CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o.d -o CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o -c /home/yasaburo3/project/graph_slam_cpp/src/graph_slam.cpp
 
-CMakeFiles/graph_slam.dir/src/test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graph_slam.dir/src/test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yasaburo3/project/graph_slam_cpp/src/test.cpp > CMakeFiles/graph_slam.dir/src/test.cpp.i
+CMakeFiles/graph_slam.dir/src/graph_slam.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graph_slam.dir/src/graph_slam.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yasaburo3/project/graph_slam_cpp/src/graph_slam.cpp > CMakeFiles/graph_slam.dir/src/graph_slam.cpp.i
 
-CMakeFiles/graph_slam.dir/src/test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graph_slam.dir/src/test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasaburo3/project/graph_slam_cpp/src/test.cpp -o CMakeFiles/graph_slam.dir/src/test.cpp.s
+CMakeFiles/graph_slam.dir/src/graph_slam.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graph_slam.dir/src/graph_slam.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasaburo3/project/graph_slam_cpp/src/graph_slam.cpp -o CMakeFiles/graph_slam.dir/src/graph_slam.cpp.s
 
 # Object files for target graph_slam
 graph_slam_OBJECTS = \
 "CMakeFiles/graph_slam.dir/src/Edge.cpp.o" \
-"CMakeFiles/graph_slam.dir/src/Vertex.cpp.o" \
 "CMakeFiles/graph_slam.dir/src/convert.cpp.o" \
-"CMakeFiles/graph_slam.dir/src/test.cpp.o"
+"CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o"
 
 # External object files for target graph_slam
 graph_slam_EXTERNAL_OBJECTS =
 
 graph_slam: CMakeFiles/graph_slam.dir/src/Edge.cpp.o
-graph_slam: CMakeFiles/graph_slam.dir/src/Vertex.cpp.o
 graph_slam: CMakeFiles/graph_slam.dir/src/convert.cpp.o
-graph_slam: CMakeFiles/graph_slam.dir/src/test.cpp.o
+graph_slam: CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o
 graph_slam: CMakeFiles/graph_slam.dir/build.make
 graph_slam: /usr/lib/x86_64-linux-gnu/libpython3.6m.so
+graph_slam: /usr/lib/x86_64-linux-gnu/libcxsparse.so
 graph_slam: CMakeFiles/graph_slam.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yasaburo3/project/graph_slam_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable graph_slam"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yasaburo3/project/graph_slam_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable graph_slam"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/graph_slam.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

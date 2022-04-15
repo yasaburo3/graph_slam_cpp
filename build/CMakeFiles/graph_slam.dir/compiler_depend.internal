@@ -431,10 +431,6 @@ CMakeFiles/graph_slam.dir/src/Edge.cpp.o
  /home/yasaburo3/project/graph_slam_cpp/include/Vertex.hpp
  /home/yasaburo3/project/graph_slam_cpp/include/convert.hpp
 
-CMakeFiles/graph_slam.dir/src/Vertex.cpp.o
- /home/yasaburo3/project/graph_slam_cpp/src/Vertex.cpp
- /usr/include/stdc-predef.h
-
 CMakeFiles/graph_slam.dir/src/convert.cpp.o
  /home/yasaburo3/project/graph_slam_cpp/src/convert.cpp
  /usr/include/stdc-predef.h
@@ -784,8 +780,8 @@ CMakeFiles/graph_slam.dir/src/convert.cpp.o
  /usr/include/eigen3/Eigen/src/Core/GlobalFunctions.h
  /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
-CMakeFiles/graph_slam.dir/src/test.cpp.o
- /home/yasaburo3/project/graph_slam_cpp/src/test.cpp
+CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o
+ /home/yasaburo3/project/graph_slam_cpp/src/graph_slam.cpp
  /usr/include/stdc-predef.h
  /usr/include/c++/7/cmath
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h
@@ -1385,4 +1381,105 @@ CMakeFiles/graph_slam.dir/src/test.cpp.o
  /usr/include/x86_64-linux-gnu/bits/ss_flags.h
  /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h
  /usr/include/x86_64-linux-gnu/bits/sigthread.h
+ /usr/local/include/g2o/core/sparse_optimizer.h
+ /usr/local/include/g2o/stuff/macros.h
+ /usr/local/include/g2o/core/optimizable_graph.h
+ /usr/include/c++/7/set
+ /usr/include/c++/7/bits/stl_set.h
+ /usr/include/c++/7/bits/stl_multiset.h
+ /usr/local/include/g2o/core/g2o_core_api.h
+ /usr/local/include/g2o/config.h
+ /usr/local/include/g2o/core/hyper_graph.h
+ /usr/include/c++/7/bitset
+ /usr/include/c++/7/unordered_map
+ /usr/include/c++/7/bits/hashtable.h
+ /usr/include/c++/7/bits/hashtable_policy.h
+ /usr/include/c++/7/bits/unordered_map.h
+ /usr/local/include/g2o/core/io_helper.h
+ /usr/local/include/g2o/core/jacobian_workspace.h
+ /usr/local/include/g2o/core/eigen_types.h
+ /usr/include/eigen3/Eigen/Geometry
+ /usr/local/include/g2o/core/openmp_mutex.h
+ /usr/local/include/g2o/core/parameter.h
+ /usr/local/include/g2o/core/parameter_container.h
+ /usr/local/include/g2o/core/sparse_block_matrix.h
+ /usr/include/c++/7/iomanip
+ /usr/include/c++/7/locale
+ /usr/include/c++/7/bits/locale_facets_nonio.h
+ /usr/include/c++/7/ctime
+ /usr/include/x86_64-linux-gnu/c++/7/bits/time_members.h
+ /usr/include/x86_64-linux-gnu/c++/7/bits/messages_members.h
+ /usr/include/libintl.h
+ /usr/include/c++/7/bits/locale_facets_nonio.tcc
+ /usr/include/c++/7/bits/locale_conv.h
+ /usr/include/c++/7/bits/stringfwd.h
+ /usr/include/c++/7/bits/allocator.h
+ /usr/include/c++/7/bits/codecvt.h
+ /usr/include/c++/7/bits/unique_ptr.h
+ /usr/include/c++/7/bits/quoted_string.h
+ /usr/local/include/g2o/core/sparse_block_matrix_ccs.h
+ /usr/local/include/g2o/core/matrix_operations.h
+ /usr/local/include/g2o/core/matrix_structure.h
+ /usr/local/include/g2o/stuff/misc.h
+ /usr/local/include/g2o/stuff/macros.h
+ /usr/local/include/g2o/stuff/sparse_helper.h
+ /usr/local/include/g2o/stuff/g2o_stuff_api.h
+ /usr/local/include/g2o/core/sparse_block_matrix.hpp
+ /usr/local/include/g2o/core/batch_stats.h
+ /usr/local/include/g2o/core/block_solver.h
+ /usr/local/include/g2o/core/solver.h
+ /usr/local/include/g2o/core/linear_solver.h
+ /usr/local/include/g2o/core/marginal_covariance_cholesky.h
+ /usr/local/include/g2o/core/sparse_block_matrix_diagonal.h
+ /usr/local/include/g2o/core/dynamic_aligned_buffer.hpp
+ /usr/local/include/g2o/core/block_solver.hpp
+ /usr/local/include/g2o/core/sparse_optimizer.h
+ /usr/include/eigen3/Eigen/LU
+ /usr/local/include/g2o/stuff/timeutil.h
+ /usr/include/c++/7/chrono
+ /usr/include/c++/7/ratio
+ /usr/include/c++/7/bits/parse_numbers.h
+ /usr/local/include/g2o/core/factory.h
+ /usr/local/include/g2o/core/creators.h
+ /usr/local/include/g2o/core/optimization_algorithm_levenberg.h
+ /usr/local/include/g2o/core/optimization_algorithm_with_hessian.h
+ /usr/local/include/g2o/core/optimization_algorithm.h
+ /usr/local/include/g2o/stuff/property.h
+ /usr/local/include/g2o/stuff/string_tools.h
+ /usr/local/include/g2o/solvers/csparse/linear_solver_csparse.h
+ /usr/local/include/g2o/solvers/csparse/csparse_helper.h
+ /usr/local/include/g2o/solvers/csparse/csparse_extension.h
+ /usr/include/suitesparse/cs.h
+ /usr/include/suitesparse/SuiteSparse_config.h
+ /usr/local/include/g2o/solvers/csparse/g2o_csparse_extension_api.h
+ /usr/local/include/g2o/core/batch_stats.h
+ /usr/local/include/g2o/core/linear_solver.h
+ /usr/local/include/g2o/solvers/csparse/g2o_csparse_api.h
+ /usr/local/include/g2o/core/robust_kernel.h
+ /usr/local/include/g2o/core/robust_kernel_impl.h
+ /usr/local/include/g2o/core/robust_kernel.h
+ /usr/local/include/g2o/types/slam2d/vertex_se2.h
+ /usr/local/include/g2o/core/base_vertex.h
+ /usr/include/eigen3/Eigen/Cholesky
+ /usr/include/c++/7/stack
+ /usr/include/c++/7/deque
+ /usr/include/c++/7/bits/stl_deque.h
+ /usr/include/c++/7/bits/deque.tcc
+ /usr/include/c++/7/bits/stl_stack.h
+ /usr/local/include/g2o/core/base_vertex.hpp
+ /usr/local/include/g2o/core/hyper_graph_action.h
+ /usr/local/include/g2o/types/slam2d/se2.h
+ /usr/local/include/g2o/types/slam2d/g2o_types_slam2d_api.h
+ /usr/local/include/g2o/types/slam2d/edge_se2.h
+ /usr/local/include/g2o/types/slam2d/vertex_se2.h
+ /usr/local/include/g2o/core/base_binary_edge.h
+ /usr/local/include/g2o/core/base_fixed_sized_edge.h
+ /usr/local/include/ceres/internal/fixed_array.h
+ /usr/local/include/ceres/internal/memory.h
+ /usr/local/include/glog/logging.h
+ /usr/local/include/glog/log_severity.h
+ /usr/local/include/glog/vlog_is_on.h
+ /usr/local/include/g2o/core/base_edge.h
+ /usr/local/include/g2o/stuff/tuple_tools.h
+ /usr/local/include/g2o/core/base_fixed_sized_edge.hpp
 

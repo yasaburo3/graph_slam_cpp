@@ -153,30 +153,6 @@ src/Edge.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/Edge.cpp.s
 .PHONY : src/Edge.cpp.s
 
-src/Vertex.o: src/Vertex.cpp.o
-.PHONY : src/Vertex.o
-
-# target to build an object file
-src/Vertex.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/Vertex.cpp.o
-.PHONY : src/Vertex.cpp.o
-
-src/Vertex.i: src/Vertex.cpp.i
-.PHONY : src/Vertex.i
-
-# target to preprocess a source file
-src/Vertex.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/Vertex.cpp.i
-.PHONY : src/Vertex.cpp.i
-
-src/Vertex.s: src/Vertex.cpp.s
-.PHONY : src/Vertex.s
-
-# target to generate assembly for a file
-src/Vertex.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/Vertex.cpp.s
-.PHONY : src/Vertex.cpp.s
-
 src/convert.o: src/convert.cpp.o
 .PHONY : src/convert.o
 
@@ -201,29 +177,29 @@ src/convert.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/convert.cpp.s
 .PHONY : src/convert.cpp.s
 
-src/test.o: src/test.cpp.o
-.PHONY : src/test.o
+src/graph_slam.o: src/graph_slam.cpp.o
+.PHONY : src/graph_slam.o
 
 # target to build an object file
-src/test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/test.cpp.o
-.PHONY : src/test.cpp.o
+src/graph_slam.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o
+.PHONY : src/graph_slam.cpp.o
 
-src/test.i: src/test.cpp.i
-.PHONY : src/test.i
+src/graph_slam.i: src/graph_slam.cpp.i
+.PHONY : src/graph_slam.i
 
 # target to preprocess a source file
-src/test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/test.cpp.i
-.PHONY : src/test.cpp.i
+src/graph_slam.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/graph_slam.cpp.i
+.PHONY : src/graph_slam.cpp.i
 
-src/test.s: src/test.cpp.s
-.PHONY : src/test.s
+src/graph_slam.s: src/graph_slam.cpp.s
+.PHONY : src/graph_slam.s
 
 # target to generate assembly for a file
-src/test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/test.cpp.s
-.PHONY : src/test.cpp.s
+src/graph_slam.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_slam.dir/build.make CMakeFiles/graph_slam.dir/src/graph_slam.cpp.s
+.PHONY : src/graph_slam.cpp.s
 
 # Help Target
 help:
@@ -237,15 +213,12 @@ help:
 	@echo "... src/Edge.o"
 	@echo "... src/Edge.i"
 	@echo "... src/Edge.s"
-	@echo "... src/Vertex.o"
-	@echo "... src/Vertex.i"
-	@echo "... src/Vertex.s"
 	@echo "... src/convert.o"
 	@echo "... src/convert.i"
 	@echo "... src/convert.s"
-	@echo "... src/test.o"
-	@echo "... src/test.i"
-	@echo "... src/test.s"
+	@echo "... src/graph_slam.o"
+	@echo "... src/graph_slam.i"
+	@echo "... src/graph_slam.s"
 .PHONY : help
 
 
