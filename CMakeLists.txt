@@ -2,38 +2,16 @@ cmake_minimum_required(VERSION 2.8.3)
 project(graph_slam_cpp)
 set( CMAKE_CXX_FLAGS "-std=c++14" )
 
-list(APPEND CMAKE_MODULE_PATH  /home/yasaburo3/project/graph_slam_cpp/Thirdparty/g2o/cmake_modules)
-set(G2O_ROOT /home/yasaburo3/project/graph_slam_cpp/Thirdparty/g2o)
+list(APPEND CMAKE_MODULE_PATH  ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/cmake_modules)
+set(G2O_ROOT ${PROJECT_SOURCE_DIR}/Thirdparty/g2o)
 
 # find g2o lib
-# find_package(G2O REQUIRED)
-find_package(G2O)
+find_package(G2O REQUIRED)
+# find_package(G2O)
 IF(G2O_FOUND)
     include_directories(${G2O_INCLUDE_DIR})
     message("G2O lib is found:" ${G2O_INCLUDE_DIR})
 ENDIF(G2O_FOUND)
-
-# add_library(tutorial_slam2d_library ${G2O_LIB_TYPE}
-#         edge_se2_pointxy.cpp
-#         se2.h
-#         vertex_point_xy.h
-#         edge_se2.cpp
-#         edge_se2_pointxy.h
-#         vertex_se2.cpp
-#         edge_se2.h
-#         rand.h
-#         vertex_point_xy.cpp
-#         vertex_se2.h
-#         parameter_se2_offset.h
-#         parameter_se2_offset.cpp
-#         types_tutorial_slam2d.h
-#         types_tutorial_slam2d.cpp
-#         simulator.h
-#         simulator.cpp
-#         g2o_tutorial_slam2d_api.h
-
-
-#         )
 
 find_package(CSparse)
 
@@ -73,10 +51,6 @@ include_directories(
 
 include(cmake/eigen.cmake)
 # include(cmake/g2o.cmake)
-
-
-
-
 
 find_package(Python3 COMPONENTS Development NumPy)
 

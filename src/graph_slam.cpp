@@ -130,21 +130,7 @@ void optimizeWithEigen(std::vector<Vertex>& vertices, std::vector<Edge>& edges, 
     // }
 }
 
-// void optimizeWithG2O(vertices, edges, i) {
-
-// }
-
-int main()
-{   
-    
-    std::string v_path = "../data/killian-v.dat";
-    std::vector<Vertex> vertices;
-    load_vertex_data(v_path, vertices);
-
-    std::string e_path = "../data/killian-e.dat";
-    std::vector<Edge> edges;
-    load_edge_data(e_path, edges);
-
+void optimizeWithG2O(std::vector<Vertex>& vertices, std::vector<Edge>& edges) {
     // g2o settings
     typedef g2o::BlockSolver<g2o::BlockSolverTraits<3,3>> Block;
     auto linearSolver = g2o::make_unique<g2o::LinearSolverCSparse<Block::PoseMatrixType>>();
@@ -187,33 +173,37 @@ int main()
     optimizer.initializeOptimization();
     optimizer.optimize(20);        // 后面可以调小一点
     optimizer.save("../result/g2o/g2o_after.g2o");
+}
 
+int main()
+{   
     
-    // int sz = vecVertex.size();
-    // std::vector<double> g2o_x(sz), g2o_y(sz);
-    // for(int i = 0; i < sz; i++){
-    //     g2o::SE2 res = vecVertex[i]->estimate();
-    //     g2o_x[i] = res.
-    // }
+    std::string v_path = "../data/killian-v.dat";
+    std::vector<Vertex> vertices;
+    load_vertex_data(v_path, vertices);
 
+    std::string e_path = "../data/killian-e.dat";
+    std::vector<Edge> edges;
+    load_edge_data(e_path, edges);
 
-    // // draw the raw odometry
-    // int n = vertices.size();
-    // std::vector<double> x(n), y(n);
-    // for(int i = 0; i < n; i++){
-    //     x[i] = vertices[i].x;
-    //     y[i] = vertices[i].y;
-    // }
-    // std::string title = "raw odometry";
-    // std::string file_name = "../result/Eigen/raw.png";
-    // draw_odometry(x, y, title, file_name);
+    // draw the raw odometry
+    int n = vertices.size();
+    std::vector<double> x(n), y(n);
+    for(int i = 0; i < n; i++){
+        x[i] = vertices[i].x;
+        y[i] = vertices[i].y;
+    }
+    std::string title = "raw odometry";
+    std::string file_name = "../result/Eigen/raw.png";
+    draw_odometry(x, y, title, file_name);
 
-    // int iteration_num = 5;
-    // for(int i = 1; i < iteration_num; i++){
-    //     std:: cout << "Iteration " << i << ": " << std::endl;
-    //     optimizeWithEigen(vertices, edges, i);
-    //     // optimizeWithG2O(vertices, edges, i);
-    // }
+    int iteration_num = 5;
+    for(int i = 1; i < iteration_num; i++){
+        std:: cout << "Iteration " << i << ": " << std::endl;
+        optimizeWithEigen(vertices, edges, i);
+    }
+
+    optimizeWithG2O(vertices, edges);
 
 
     return 0;
