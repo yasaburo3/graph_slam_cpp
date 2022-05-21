@@ -25,6 +25,14 @@
 #include "g2o/types/slam2d/vertex_se2.h"
 #include "g2o/types/slam2d/edge_se2.h"
 
+// ceres
+#include <ceres/ceres.h>
+#include <ceres/autodiff_cost_function.h>
+
+#include "error_function.hpp"
+
+enum optimization_mode {EIGEN_MODE, CERES_MODE, G2O_MODE};
+
 namespace plt = matplotlibcpp;
 
 void draw_odometry(std::vector<double>& x, std::vector<double>& y, std::string& title, std::string& file_name) {
@@ -34,14 +42,13 @@ void draw_odometry(std::vector<double>& x, std::vector<double>& y, std::string& 
     plt::save(file_name);
 }
 
+// TODO:加入三种方法的用时对比
+
 void optimizeWithEigen(std::vector<Vertex>& vertices, std::vector<Edge>& edges, int iteration) {
     int n_vertex = vertices.size();
     int n_edge = edges.size();
 
     // Eigen库实现的图优化
-    // int iteration = 5;
-    // for(int i = 1; i < iteration;  i++){
-        // std:: cout << "Iteration " << iteration << ": " << std::endl;
     //开始迭代
         Eigen::MatrixXd H(n_vertex*3, n_vertex*3);
         Eigen::VectorXd b(n_vertex*3);
@@ -87,14 +94,21 @@ void optimizeWithEigen(std::vector<Vertex>& vertices, std::vector<Edge>& edges, 
         H.block<3,3>(0,0) += Eigen::Matrix3d::Identity();
 
         std::vector< Eigen::Triplet<double> > triplets;
+        int num_H = 0;
         for(int i = 0; i < H.rows(); i++){
             for(int j = 0; j < H.cols(); j++){
                 if(H(i, j) * H(i, j) > 1e-5){
                     // triplets.emplace_back(i, j, H(i, j));
                     triplets.push_back(Eigen::Triplet<double>(i, j, H(i, j)));
+                    num_H++;
                 }
             }
         }
+        // std::cout << "size of H:" << H.rows() << std::endl;
+        // std::cout << "nums of non-zero elements: " << num_H << std::endl;
+        // std::cout << "percentage of non-zero elements in H: " << static_cast<double>(num_H) / static_cast<double>(H.rows() * H.cols()) * 100 << "%" << std::endl;
+        
+
         Eigen::SparseMatrix<double> H_sparse(H.rows(), H.cols());
         H_sparse.setFromTriplets(triplets.begin(), triplets.end());
 
@@ -130,6 +144,7 @@ void optimizeWithEigen(std::vector<Vertex>& vertices, std::vector<Edge>& edges, 
     // }
 }
 
+// TODO:用自己定义的节点和边做优化
 void optimizeWithG2O(std::vector<Vertex>& vertices, std::vector<Edge>& edges) {
     // g2o settings
     typedef g2o::BlockSolver<g2o::BlockSolverTraits<3,3>> Block;
@@ -171,8 +186,78 @@ void optimizeWithG2O(std::vector<Vertex>& vertices, std::vector<Edge>& edges) {
     std::cout << "g2o optimizer has been built!" << std::endl;
     optimizer.save("../result/g2o/g2o_before.g2o");
     optimizer.initializeOptimization();
-    optimizer.optimize(20);        // 后面可以调小一点
+    auto startTime = std::chrono::system_clock::now();
+    optimizer.optimize(5);        // 后面可以调小一点
+    auto endTime = std::chrono::system_clock::now();
+    std::cout << "time used by g2o during optimizing: " << std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count() << " ms" << std::endl;
     optimizer.save("../result/g2o/g2o_after.g2o");
+}
+
+void build_problem(std::vector<Vertex>& vertices, const std::vector<Edge>& edges, ceres::Problem& problem) {
+    ceres::LossFunction* loss_function = nullptr;
+
+    for(const auto& edge : edges) {
+        // 由于Ceres要的是代价函数而不是平方，所以需要误差向量乘以信息矩阵开平方
+        Eigen::Matrix3d sqrt_information;
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+                if(i == j) {
+                    sqrt_information(i, j) = sqrt(edge.inf(i,i));
+                }
+                else{
+                    sqrt_information(i, j) = 0.0;
+                }
+            }
+        }
+
+        ceres::CostFunction* cost_function = 
+                new ceres::AutoDiffCostFunction<error_function, 3, 1, 1, 1, 1, 1, 1>(
+                        new error_function(edge.mean_x, edge.mean_y, edge.mean_theta, sqrt_information));
+        
+
+        problem.AddResidualBlock(cost_function, loss_function, 
+                                 &(vertices[edge.id_from].x),
+                                 &(vertices[edge.id_from].y),
+                                 &(vertices[edge.id_from].theta),
+                                 &(vertices[edge.id_to].x),
+                                 &(vertices[edge.id_to].y),
+                                 &(vertices[edge.id_to].theta));
+
+    }
+
+    problem.SetParameterBlockConstant(&(vertices[0].x));
+    problem.SetParameterBlockConstant(&(vertices[0].y));
+    problem.SetParameterBlockConstant(&(vertices[0].theta));
+}
+
+bool solve_problem(ceres::Problem& problem) {
+    ceres::Solver::Options options;
+    options.max_num_iterations = 100;
+    options.linear_solver_type = ceres::SPARSE_NORMAL_CHOLESKY;
+
+    ceres::Solver::Summary summary;
+    ceres::Solve(options, &problem, &summary);
+
+    std::cout << summary.FullReport() << std::endl;
+
+    return summary.IsSolutionUsable();
+}
+
+void optimizeWithCeres(std::vector<Vertex>& vertices, std::vector<Edge>& edges) {
+    ceres::Problem problem;
+    build_problem(vertices, edges, problem);
+    solve_problem(problem);
+}
+
+void writeResultFile(std::string& path, std::vector<Vertex>& vertices) {
+    std::ofstream ofs;
+    ofs.open(path, std::ios::out);
+
+    for(auto& vertex : vertices) {
+        ofs << vertex.id << " " << vertex.x << " " << vertex.y << " " << vertex.theta << std::endl;
+    }
+
+    ofs.close();
 }
 
 int main()
@@ -186,25 +271,53 @@ int main()
     std::vector<Edge> edges;
     load_edge_data(e_path, edges);
 
-    // draw the raw odometry
-    int n = vertices.size();
-    std::vector<double> x(n), y(n);
-    for(int i = 0; i < n; i++){
-        x[i] = vertices[i].x;
-        y[i] = vertices[i].y;
+    // // draw the raw odometry
+    // int n = vertices.size();
+    // std::vector<double> x(n), y(n);
+    // for(int i = 0; i < n; i++){
+    //     x[i] = vertices[i].x;
+    //     y[i] = vertices[i].y;
+    // }
+    // std::string title = "raw odometry";
+    // std::string file_name = "../result/Eigen/raw.png";
+    // draw_odometry(x, y, title, file_name);
+
+    int optMode = EIGEN_MODE;
+    std::string ouput_path;
+
+    if(optMode == EIGEN_MODE) {
+        int iteration_num = 5;
+        for(int i = 1; i < iteration_num; i++){
+            std:: cout << "Iteration " << i << ": " << std::endl;
+            optimizeWithEigen(vertices, edges, i);
+        }
+        ouput_path = "/home/yasaburo3/project/graph_slam_cpp/result/Eigen/result.txt";
+        writeResultFile(ouput_path, vertices);
     }
-    std::string title = "raw odometry";
-    std::string file_name = "../result/Eigen/raw.png";
-    draw_odometry(x, y, title, file_name);
+    else if(optMode == CERES_MODE) {
+        optimizeWithCeres(vertices, edges);
+        // draw new odometry
+        int n = vertices.size();
+        std::vector<double> x(n), y(n);
+        for(int i = 0; i < n; i++){
+            x[i] = vertices[i].x;
+            y[i] = vertices[i].y;
+        }
+        std::string title = "Ceres Result";
+        std::string file_name = "../result/Ceres/result.png";
+        draw_odometry(x, y, title, file_name);
 
-    int iteration_num = 5;
-    for(int i = 1; i < iteration_num; i++){
-        std:: cout << "Iteration " << i << ": " << std::endl;
-        optimizeWithEigen(vertices, edges, i);
+        ouput_path = "/home/yasaburo3/project/graph_slam_cpp/result/Ceres/result.txt";
+        writeResultFile(ouput_path, vertices);
     }
-
-    optimizeWithG2O(vertices, edges);
-
+    else if(optMode == G2O_MODE) {
+        optimizeWithG2O(vertices, edges);
+        std::string path = "/home/yasaburo3/project/graph_slam_cpp/result/g2o/result.txt";
+        writeResultFile(path, vertices);
+    }
+    else {
+        std::cerr << "ERROR: unknown optimization mode: " << optMode << std::endl;
+    }
 
     return 0;
 }

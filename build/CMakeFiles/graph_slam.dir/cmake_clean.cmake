@@ -1,10 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/graph_slam.dir/src/Edge.cpp.o"
-  "CMakeFiles/graph_slam.dir/src/Edge.cpp.o.d"
   "CMakeFiles/graph_slam.dir/src/convert.cpp.o"
-  "CMakeFiles/graph_slam.dir/src/convert.cpp.o.d"
   "CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o"
-  "CMakeFiles/graph_slam.dir/src/graph_slam.cpp.o.d"
   "graph_slam"
   "graph_slam.pdb"
 )

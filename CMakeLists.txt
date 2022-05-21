@@ -15,6 +15,28 @@ ENDIF(G2O_FOUND)
 
 find_package(CSparse)
 
+# Ceres Solver
+find_package(Ceres REQUIRED)
+include_directories(${Ceres_INCLUDE_DIR})
+
+# Lapack for Ceres Solver
+find_package(LAPACK)
+if (LAPACK_FOUND)
+    include_directories(${LAPACK_INCLUDE_DIRS})
+endif()
+
+# CXSparse for Ceres Solver
+find_package(CXSparse)
+if (CXSPARSE_FOUND)
+    include_directories(${CXSPARSE_INCLUDE_DIRS})
+endif()
+
+# SuiteSparse for Ceres Solver
+find_package(SuiteSparse)
+if (SUITESPARSE_FOUND)
+    include_directories(${SUITESPARSE_INCLUDE_DIRS})
+endif()
+
 SET(G2O_LIBS
         g2o_cli
         g2o_ext_freeglut_minimal
@@ -58,5 +80,10 @@ aux_source_directory(./src SRCS)
 add_executable(graph_slam ${SRCS})
 
 
-target_include_directories(graph_slam PRIVATE ${Python3_INCLUDE_DIRS} ${Python3_NumPy_INCLUDE_DIRS} ${G2O_INCLUDE_DIR} ${CSPARSE_INCLUDE_DIR})
-target_link_libraries(graph_slam Python3::Python Python3::NumPy ${G2O_LIBS} ${CSPARSE_LIBRARY})
+target_include_directories(graph_slam PRIVATE ${Python3_INCLUDE_DIRS} ${Python3_NumPy_INCLUDE_DIRS} ${G2O_INCLUDE_DIR} ${CSPARSE_INCLUDE_DIR} ${Ceres_INCLUDE_DIR} ${LAPACK_INCLUDE_DIRS}
+${CXSPARSE_INCLUDE_DIRS} ${SUITESPARSE_INCLUDE_DIRS})
+target_link_libraries(graph_slam Python3::Python Python3::NumPy ${G2O_LIBS} ${CSPARSE_LIBRARY} 
+${CERES_LIBRARIES}
+        ${LAPACK_LIBRARIES}
+        ${CXSPARSE_LIBRARIES}
+        ${SUITESPARSE_LIBRARIES})
